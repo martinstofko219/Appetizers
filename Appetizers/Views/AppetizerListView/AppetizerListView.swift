@@ -10,7 +10,9 @@ import SwiftUI
 struct AppetizerListView: View {
     var body: some View {
         NavigationView {
-            Text("List View").navigationTitle("Appetizers")
+            List(MockData.sampleList, rowContent: { item in
+                AppetizerTile(item: item)
+            }).navigationTitle("Appetizers")
         }
     }
 }
