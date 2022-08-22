@@ -8,12 +8,23 @@
 import SwiftUI
 
 struct AppetizerListView: View {
+    @StateObject var viewModel = AppetizerListViewModel()
+    
     var body: some View {
         NavigationView {
-            List(MockData.sampleList, rowContent: { item in
+            List(viewModel.appetizers, rowContent: { item in
                 AppetizerTile(item: item)
             }).navigationTitle("Appetizers")
         }
+        .onAppear {
+            viewModel.getAppetizers()
+        }
+        .alert(viewModel.alertItem?.title ?? "Error",
+               isPresented: $viewModel.showAlert,
+               presenting: viewModel.alertItem,
+               actions: { alert in Button(alert.dismissButtonText, action: {}) },
+               message: { alert in alert.message }
+        )
     }
 }
 
