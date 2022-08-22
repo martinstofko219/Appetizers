@@ -10,7 +10,7 @@ import Foundation
 final class NetworkManager {
     static let shared = NetworkManager()
     
-    static let baseURL = "https://seanallen-course-bac-kend.herokuapp.com/swiftui-fundamentals/"
+    static let baseURL = "https://seanallen-course-backend.herokuapp.com/swiftui-fundamentals/"
     private let appetizersURL = baseURL + "appetizers"
     
     private init() {}
