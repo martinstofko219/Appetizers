@@ -9,9 +9,11 @@ import SwiftUI
 
 final class AppetizerListViewModel: ObservableObject {
     @Published var appetizers: [Appetizer] = []
-    @Published var showingAlert: Bool = false
     @Published var isLoading: Bool = false
+    @Published var isShowingAlert: Bool = false
     @Published var alertItem: AlertItem?
+    @Published var isShowingDetail = false
+    @Published var selectedAppetizer: Appetizer?
     
     func getAppetizers() {
         isLoading = true
@@ -24,7 +26,7 @@ final class AppetizerListViewModel: ObservableObject {
                 case .success(let appetizers):
                     self.appetizers = appetizers
                 case .failure(let error):
-                    showingAlert = true
+                    isShowingAlert = true
                     switch error {
                     case .invalidURL:
                         alertItem = AlertContext.genericNetworkError
