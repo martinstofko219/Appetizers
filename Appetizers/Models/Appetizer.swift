@@ -23,7 +23,7 @@ struct AppetizerResponse: Decodable {
 }
 
 struct MockData {
-    static let sampleItem = Appetizer(id: 1, name: "Sample Appetizer", description: "Description for our yummy sample appetizer.", imageURL: "SampleImage", price: 9.99, protein: 20, carbs: 35, calories: 475)
+    static let sampleItem = Appetizer(id: 1, name: "Sample Appetizer", description: "Description for our yummy sample appetizer.", imageURL: "", price: 9.99, protein: 20, carbs: 35, calories: 475)
     
     static let sampleList = [sampleItem, sampleItem, sampleItem, sampleItem]
 }

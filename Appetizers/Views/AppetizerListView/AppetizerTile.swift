@@ -13,8 +13,7 @@ struct AppetizerTile: View {
     
     var body: some View {
         HStack {
-            Image(item.imageURL)
-                .resizable()
+            AppetizerImage(urlString: item.imageURL)
                 .scaledToFit()
                 .frame(width: 120, height: 90).cornerRadius(8)
             VStack(alignment: .leading, spacing: 4) {
