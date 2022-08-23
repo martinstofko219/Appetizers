@@ -14,18 +14,20 @@ struct OrderView: View {
         NavigationView{
             VStack {
                 List {
-                    Text("appetizers here")
+                    ForEach(MockData.sampleList) { item in
+                        AppetizerTile(item: item)
+                    }
                 }
                 
                 Spacer()
                 
                 Button {
-                    print("tapped")
+                    print("order button tapped")
                 } label: {
                     Text("Purchase").fontWeight(.semibold).frame(width: 200, height: 32)
                 }.buttonStyle(.bordered).tint(.accentColor).padding(.bottom, 32)
             }
-            .navigationTitle("My Order")
+            .navigationTitle("Total - Place My Order")
         }
     }
 }
