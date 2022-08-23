@@ -8,9 +8,35 @@
 import SwiftUI
 
 struct AccountView: View {
+    @State var firstName = ""
+    @State var lastName = ""
+    @State var email = ""
+    @State var birthday = Date()
+    @State var extraNapkins = false
+    @State var boosterChair = false
+    
     var body: some View {
-        NavigationView{
-            Text("Account View").navigationTitle("My Account")
+        NavigationView {
+            Form {
+                Section("Personal Information") {
+                    TextField("First Name", text: $firstName)
+                    TextField("Last Name", text: $lastName)
+                    TextField("Email", text: $email)
+                        .keyboardType(.emailAddress)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                    DatePicker("Brithday", selection: $birthday, displayedComponents: .date)
+                    Button("Save Changes") {
+                        print("Save")
+                    }
+                }
+                
+                Section("Requests") {
+                    Toggle("Extra Napkins", isOn: $extraNapkins)
+                    Toggle("Booster or High Chair", isOn: $boosterChair)
+                }
+            }
+            .navigationTitle("My Account")
         }
     }
 }
