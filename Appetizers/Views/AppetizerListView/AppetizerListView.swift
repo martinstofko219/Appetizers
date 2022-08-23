@@ -36,11 +36,11 @@ struct AppetizerListView: View {
             }
         }
         .alert(viewModel.alertItem?.title ?? "Error",
-                isPresented: $viewModel.isShowingAlert,
-                presenting: viewModel.alertItem,
-                actions: { alert in Button(alert.dismissButtonText, action: {}) },
-                message: { alert in alert.message }
-         )
+               isPresented: $viewModel.isShowingAlert,
+               presenting: viewModel.alertItem,
+               actions: { alert in Button(alert.dismissButtonText, role: .cancel, action: {}) },
+               message: { alert in alert.message }
+        )
     }
 }
 

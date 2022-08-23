@@ -34,4 +34,20 @@ struct AlertContext {
         title: "Missing Required Fields",
         message: Text("Please make sure you fill out all fields."),
         dismissButtonText: "Ok")
+    
+    //MARK: Account Alerts
+    static let userSaveSuccess = AlertItem(
+        title: "Success",
+        message: Text("Your account information was saved."),
+        dismissButtonText: "Yay!")
+    
+    static let userSaveFailure = AlertItem(
+        title: "Failed",
+        message: Text("Your account information could not be saved."),
+        dismissButtonText: "Ok")
+    
+    static let userGetFailure = AlertItem(
+        title: "Cannot Find Account",
+        message: Text("Your account information could not be retrieved."),
+        dismissButtonText: "Ok")
 }

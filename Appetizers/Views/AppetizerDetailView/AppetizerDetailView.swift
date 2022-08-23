@@ -34,7 +34,7 @@ struct AppetizerDetailView: View {
                 print("tapped")
             } label: {
                 Text("$\(appetizer.price, specifier: "%.2f") - Add to Order").fontWeight(.semibold).frame(width: 200, height: 32)
-            }.buttonStyle(.borderedProminent).tint(.accentColor).padding(.bottom, 32)
+            }.buttonStyle(.bordered).tint(.accentColor).padding(.bottom, 32)
         }
         .frame(width: 320, height: 525)
         .background(Color(.systemBackground))
