@@ -9,11 +9,13 @@ import SwiftUI
 
 final class AppetizerListViewModel: ObservableObject {
     @Published var appetizers: [Appetizer] = []
-    @Published var isLoading: Bool = false
+    @Published var selectedAppetizer: Appetizer?
+    @Published var isShowingDetail = false
+    
     @Published var isShowingAlert: Bool = false
     @Published var alertItem: AlertItem?
-    @Published var isShowingDetail = false
-    @Published var selectedAppetizer: Appetizer?
+    
+    @Published var isLoading: Bool = false
     
     func getAppetizers() {
         isLoading = true

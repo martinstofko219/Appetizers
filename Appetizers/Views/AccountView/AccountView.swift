@@ -8,36 +8,37 @@
 import SwiftUI
 
 struct AccountView: View {
-    @State var firstName = ""
-    @State var lastName = ""
-    @State var email = ""
-    @State var birthday = Date()
-    @State var extraNapkins = false
-    @State var boosterChair = false
+    @StateObject var viewModel = AccountViewModel()
     
     var body: some View {
         NavigationView {
             Form {
                 Section("Personal Information") {
-                    TextField("First Name", text: $firstName)
-                    TextField("Last Name", text: $lastName)
-                    TextField("Email", text: $email)
+                    TextField("First Name", text: $viewModel.firstName)
+                    TextField("Last Name", text: $viewModel.lastName)
+                    TextField("Email", text: $viewModel.email)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
-                    DatePicker("Brithday", selection: $birthday, displayedComponents: .date)
+                    DatePicker("Brithday", selection: $viewModel.birthday, displayedComponents: .date)
                     Button("Save Changes") {
-                        print("Save")
+                        viewModel.saveChanges()
                     }
                 }
                 
                 Section("Requests") {
-                    Toggle("Extra Napkins", isOn: $extraNapkins)
-                    Toggle("Booster or High Chair", isOn: $boosterChair)
+                    Toggle("Extra Napkins", isOn: $viewModel.extraNapkins)
+                    Toggle("Booster or High Chair", isOn: $viewModel.boosterChair)
                 }
             }
             .navigationTitle("My Account")
         }
+        .alert(viewModel.alertItem?.title ?? "Error",
+                isPresented: $viewModel.isShowingAlert,
+                presenting: viewModel.alertItem,
+                actions: { alert in Button(alert.dismissButtonText, action: {}) },
+                message: { alert in alert.message }
+         )
     }
 }
 
