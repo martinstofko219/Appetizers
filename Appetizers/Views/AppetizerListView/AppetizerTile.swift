@@ -17,7 +17,7 @@ struct AppetizerTile: View {
                 .scaledToFit()
                 .frame(width: 120, height: 90).cornerRadius(8)
             VStack(alignment: .leading, spacing: 4) {
-                Text(item.name).font(.title2).fontWeight(.bold).scaledToFit().minimumScaleFactor(0.6)
+                Text(item.name).font(.title3).fontWeight(.bold).scaledToFit().minimumScaleFactor(0.6)
                 Text("$\(item.price, specifier: "%.2f")").font(.body).fontWeight(.semibold).foregroundColor(.secondary)
             }.padding(.leading)
         }

@@ -12,27 +12,32 @@ struct AppetizerListView: View {
     
     var body: some View {
         ZStack {
-            NavigationView {
-                List(viewModel.appetizers, rowContent: { item in
-                    AppetizerTile(item: item).onTapGesture {
-                        viewModel.selectedAppetizer = item
-                        viewModel.isShowingDetail = true
-                    }
-                })
-                .navigationTitle("Appetizers")
-                .disabled(viewModel.isShowingDetail)
+            withAnimation {
+                NavigationView {
+                    List(viewModel.appetizers, rowContent: { item in
+                        AppetizerTile(item: item).onTapGesture {
+                            withAnimation {
+                                viewModel.selectedAppetizer = item
+                                viewModel.isShowingDetail = true
+                            }
+                        }
+                    })
+                    .navigationTitle("Appetizers")
+                    .disabled(viewModel.isShowingDetail)
+                }
+                .onAppear {
+                    viewModel.getAppetizers()
+                }
+                .blur(radius: viewModel.isShowingDetail ? 20 : 0)
             }
-            .onAppear {
-                viewModel.getAppetizers()
-            }
-            .blur(radius: viewModel.isShowingDetail ? 20 : 0)
             
             if viewModel.isShowingDetail {
                 AppetizerDetailView(appetizer: viewModel.selectedAppetizer!, isShowingDetail: $viewModel.isShowingDetail)
+                    .transition(.scale)
             }
             
             if viewModel.isLoading {
-                ProgressView("Loading appetizers...")
+                ProgressView("LOADING")
             }
         }
         .alert(viewModel.alertItem?.title ?? "Error",

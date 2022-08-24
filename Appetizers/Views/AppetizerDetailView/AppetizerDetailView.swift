@@ -32,8 +32,10 @@ struct AppetizerDetailView: View {
             Spacer()
             
             Button {
-                order.add(appetizer)
-                isShowingDetail = false
+                withAnimation {
+                    order.add(appetizer)
+                    isShowingDetail = false
+                }
             } label: {
                 Text("$\(appetizer.price, specifier: "%.2f") - Add to Order").fontWeight(.semibold).frame(width: 200, height: 32)
             }.buttonStyle(.bordered).tint(.accentColor).padding(.bottom, 32)
@@ -45,7 +47,9 @@ struct AppetizerDetailView: View {
         .overlay(alignment: .topTrailing) {
             // close button
             Button {
-                isShowingDetail = false
+                withAnimation {
+                    isShowingDetail = false
+                }
             } label: {
                 Image(systemName: "xmark.circle.fill").resizable().foregroundColor(.black).frame(width: 32, height: 32).opacity(0.5).padding()
             }            
