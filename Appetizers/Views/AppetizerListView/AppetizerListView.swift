@@ -15,14 +15,17 @@ struct AppetizerListView: View {
             withAnimation {
                 NavigationView {
                     List(viewModel.appetizers, rowContent: { item in
-                        AppetizerTile(item: item).onTapGesture {
-                            withAnimation {
-                                viewModel.selectedAppetizer = item
-                                viewModel.isShowingDetail = true
+                        AppetizerTile(item: item)
+                            .listRowSeparator(.hidden)
+                            .onTapGesture {
+                                withAnimation {
+                                    viewModel.selectedAppetizer = item
+                                    viewModel.isShowingDetail = true
+                                }
                             }
-                        }
                     })
                     .navigationTitle("Appetizers")
+                    .listStyle(.plain)
                     .disabled(viewModel.isShowingDetail)
                 }
                 .onAppear {

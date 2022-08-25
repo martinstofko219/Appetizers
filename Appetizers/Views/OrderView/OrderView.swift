@@ -17,17 +17,18 @@ struct OrderView: View {
                 VStack() {
                     List {
                         ForEach(order.items) { item in
-                            AppetizerTile(item: item)
+                            AppetizerTile(item: item).listRowSeparator(.hidden)
                         }
                         .onDelete { indexSet in
                             order.remove(at: indexSet)
                         }
+                        
                         HStack {
                             Spacer()
                             Text("Order Total: $\(order.totalPrice, specifier: "%.2f")")
                                 .font(.title3).fontWeight(.bold).padding()
                         }
-                    }
+                    }.listStyle(.plain)
             
                     Button {
                         print("order button tapped")
