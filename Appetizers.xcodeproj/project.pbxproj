@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C610FBC828B1A645001F2D41 /* Appetizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610FBC728B1A645001F2D41 /* Appetizer.swift */; };
+		C6185E9328B82EF0004429DE /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6185E9228B82EF0004429DE /* ButtonStyle.swift */; };
 		C621F20C28B424ED00AFF793 /* AppetizerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C621F20B28B424ED00AFF793 /* AppetizerDetailView.swift */; };
 		C643D92828B2E72700ADBA34 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C643D92728B2E72700ADBA34 /* NetworkManager.swift */; };
 		C643D92A28B2E91500ADBA34 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C643D92928B2E91500ADBA34 /* AppError.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		C610FBC728B1A645001F2D41 /* Appetizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appetizer.swift; sourceTree = "<group>"; };
+		C6185E9228B82EF0004429DE /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		C621F20B28B424ED00AFF793 /* AppetizerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerDetailView.swift; sourceTree = "<group>"; };
 		C643D92728B2E72700ADBA34 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C643D92928B2E91500ADBA34 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C6185E9128B82EDF004429DE /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				C6185E9228B82EF0004429DE /* ButtonStyle.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 		C621F20A28B4249200AFF793 /* AppetizerDetailView */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +131,7 @@
 		C694513F28B560AD00D57C9A /* View Components */ = {
 			isa = PBXGroup;
 			children = (
+				C6185E9128B82EDF004429DE /* Modifiers */,
 				C694513C28B5603F00D57C9A /* EmptyStateView */,
 			);
 			path = "View Components";
@@ -303,6 +314,7 @@
 				C6A9136628B5936D001EA0DB /* Order.swift in Sources */,
 				C643D92C28B325D300ADBA34 /* AppetizerListViewModel.swift in Sources */,
 				C6E6297F28B0ABB400CE36F7 /* MainTabView.swift in Sources */,
+				C6185E9328B82EF0004429DE /* ButtonStyle.swift in Sources */,
 				C69FF04428B2BB1D005C6DD3 /* AppetizerTile.swift in Sources */,
 				C6F88DD328B43948005D6CB0 /* NutritionInfoView.swift in Sources */,
 				C6E5565728B48CF70068EF37 /* OrderViewModel.swift in Sources */,

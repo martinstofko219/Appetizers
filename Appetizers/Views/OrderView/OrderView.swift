@@ -33,8 +33,10 @@ struct OrderView: View {
                     Button {
                         print("order button tapped")
                     } label: {
-                        Text("Place My Order").fontWeight(.semibold).frame(height: 32)
-                    }.buttonStyle(.bordered).tint(.accentColor).padding(.bottom, 32)
+                        Text("Place My Order").fontWeight(.semibold)
+                    }
+                    .modifier(StandardButtonStyle())
+                    .padding(.bottom, 32)
                 }
                 
                 if order.items.isEmpty {
