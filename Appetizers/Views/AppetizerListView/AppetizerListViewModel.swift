@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 final class AppetizerListViewModel: ObservableObject {
     @Published var appetizers: [Appetizer] = []
     @Published var selectedAppetizer: Appetizer?
@@ -17,30 +18,43 @@ final class AppetizerListViewModel: ObservableObject {
     
     @Published var isLoading: Bool = false
     
-    func getAppetizers() {
+    func getAppetizers() async {
         isLoading = true
         
-        NetworkManager.shared.getAppetizers { result in
-            DispatchQueue.main.async { [self] in
-                isLoading = false
-                
-                switch result {
-                case .success(let appetizers):
-                    self.appetizers = appetizers
-                case .failure(let error):
-                    isShowingAlert = true
-                    switch error {
-                    case .invalidURL:
-                        alertItem = AlertContext.genericNetworkError
-                    case .invalidResponse:
-                        alertItem = AlertContext.invalidResponse
-                    case .invalidData:
-                        alertItem = AlertContext.invalidData
-                    case .unableToComplete:
-                        alertItem = AlertContext.genericNetworkError
-                    }
-                }
-            }
+        do {
+            appetizers = try await NetworkManager.shared.getAppetizers()
+            isLoading = false
+        } catch {
+            alertItem = AlertContext.genericNetworkError
+            isLoading = false
+            isShowingAlert = true
         }
     }
+    
+    //    func getAppetizers() {
+    //        isLoading = true
+    //
+    //        NetworkManager.shared.getAppetizers { result in
+    //            DispatchQueue.main.async { [self] in
+    //                isLoading = false
+    //
+    //                switch result {
+    //                case .success(let appetizers):
+    //                    self.appetizers = appetizers
+    //                case .failure(let error):
+    //                    isShowingAlert = true
+    //                    switch error {
+    //                    case .invalidURL:
+    //                        alertItem = AlertContext.genericNetworkError
+    //                    case .invalidResponse:
+    //                        alertItem = AlertContext.invalidResponse
+    //                    case .invalidData:
+    //                        alertItem = AlertContext.invalidData
+    //                    case .unableToComplete:
+    //                        alertItem = AlertContext.genericNetworkError
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
 }

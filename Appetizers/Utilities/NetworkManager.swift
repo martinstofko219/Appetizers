@@ -16,37 +16,56 @@ final class NetworkManager {
     
     private init() {}
     
-    func getAppetizers(completed: @escaping (Result<[Appetizer], AppError>) -> Void) {
+    //    func getAppetizers(completed: @escaping (Result<[Appetizer], AppError>) -> Void) {
+    //        guard let url = URL(string: appetizersURL) else {
+    //            completed(.failure(.invalidURL))
+    //            return
+    //        }
+    //
+    //        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+    //            if let _ = error {
+    //                completed(.failure(.unableToComplete))
+    //                return
+    //            }
+    //
+    //            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+    //                completed(.failure(.invalidResponse))
+    //                return
+    //            }
+    //
+    //            guard let data = data else {
+    //                completed(.failure(.invalidData))
+    //                return
+    //            }
+    //
+    //            do {
+    //                let decoder = JSONDecoder()
+    //                let decodedResponse = try decoder.decode(AppetizerResponse.self, from: data)
+    //                completed(.success(decodedResponse.request))
+    //            } catch {
+    //                completed(.failure(.invalidData))
+    //            }
+    //        }
+    //        task.resume()
+    //    }
+    
+    func getAppetizers() async throws -> [Appetizer] {
         guard let url = URL(string: appetizersURL) else {
-            completed(.failure(.invalidURL))
-            return
+            throw AppError.invalidURL
         }
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let _ = error {
-                completed(.failure(.unableToComplete))
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(.failure(.invalidResponse))
-                return
-            }
-
-            guard let data = data else {
-                completed(.failure(.invalidData))
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let decodedResponse = try decoder.decode(AppetizerResponse.self, from: data)
-                completed(.success(decodedResponse.request))
-            } catch {
-                completed(.failure(.invalidData))
-            }
+        let (data, _) = try await URLSession.shared.data(from: url)
+        do {
+            let decodedResponse = try JSONDecoder().decode(AppetizerResponse.self, from: data)
+            return decodedResponse.request
+        } catch {
+//            if let appError = error as? AppError {
+//                // our custom error was thrown; can handle different cases
+//            } else {
+//                // generic error
+//            }
+            throw AppError.invalidData
         }
-        task.resume()
     }
     
     func getAppetizerImage(fromURLString urlString: String, completed: @escaping (UIImage?) -> Void) {
@@ -67,7 +86,7 @@ final class NetworkManager {
                 completed(nil)
                 return
             }
-
+            
             // put image in the cache
             cache.setObject(image, forKey: cacheKey)
             
