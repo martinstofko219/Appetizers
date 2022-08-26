@@ -19,6 +19,7 @@
 		C69FF04428B2BB1D005C6DD3 /* AppetizerTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69FF04328B2BB1D005C6DD3 /* AppetizerTile.swift */; };
 		C6A9136628B5936D001EA0DB /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A9136528B5936D001EA0DB /* Order.swift */; };
 		C6C0343628B3CD6C00031C85 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C0343528B3CD6C00031C85 /* ImageLoader.swift */; };
+		C6DF574C28B8874B0077B1A6 /* AppetizerTileImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF574B28B8874B0077B1A6 /* AppetizerTileImageStyle.swift */; };
 		C6E5565028B47CAD0068EF37 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E5564F28B47CAD0068EF37 /* AccountViewModel.swift */; };
 		C6E5565328B47E720068EF37 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E5565228B47E720068EF37 /* String+Ext.swift */; };
 		C6E5565528B484370068EF37 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E5565428B484370068EF37 /* User.swift */; };
@@ -47,6 +48,7 @@
 		C69FF04328B2BB1D005C6DD3 /* AppetizerTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerTile.swift; sourceTree = "<group>"; };
 		C6A9136528B5936D001EA0DB /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		C6C0343528B3CD6C00031C85 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		C6DF574B28B8874B0077B1A6 /* AppetizerTileImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerTileImageStyle.swift; sourceTree = "<group>"; };
 		C6E5564F28B47CAD0068EF37 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		C6E5565228B47E720068EF37 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		C6E5565428B484370068EF37 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				C6185E9228B82EF0004429DE /* ButtonStyle.swift */,
+				C6DF574B28B8874B0077B1A6 /* AppetizerTileImageStyle.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				C643D92C28B325D300ADBA34 /* AppetizerListViewModel.swift in Sources */,
 				C6E6297F28B0ABB400CE36F7 /* MainTabView.swift in Sources */,
 				C6185E9328B82EF0004429DE /* ButtonStyle.swift in Sources */,
+				C6DF574C28B8874B0077B1A6 /* AppetizerTileImageStyle.swift in Sources */,
 				C69FF04428B2BB1D005C6DD3 /* AppetizerTile.swift in Sources */,
 				C6F88DD328B43948005D6CB0 /* NutritionInfoView.swift in Sources */,
 				C6E5565728B48CF70068EF37 /* OrderViewModel.swift in Sources */,
