@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NutritionInfoView: View {
     let title: String
-    let value: LocalizedStringKey
+    let value: String
     
     var body: some View {
         VStack(spacing: 5) {

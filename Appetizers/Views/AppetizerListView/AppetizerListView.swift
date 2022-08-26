@@ -40,7 +40,9 @@ struct AppetizerListView: View {
             }
             
             if viewModel.isLoading {
-                ProgressView("LOADING")
+                ProgressView()
+                .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
+                .scaleEffect(2)
             }
         }
         .alert(viewModel.alertItem?.title ?? "Error",
