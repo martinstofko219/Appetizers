@@ -11,8 +11,8 @@ final class AccountViewModel: ObservableObject {
     // DISCLAIMER - we would not store a user object in AppStorage in a real app
     //            - for educational purposes only to use AppStorage
     @AppStorage("user") private var userData: Data?
-    @Published var user = User()
     
+    @Published var user = User()
     @Published var alertItem: AlertItem?
     @Published var isShowingAlert = false
     
